@@ -1,0 +1,547 @@
+﻿W3C:HTML 结构标准 / CSS  表现标准 / JavaScript 行为标准
+
+世界上第一款浏览器 94年网景(Netscape Communications Corporation)公司开发。
+95年和sun公司开发出Java
+网景和sun进行了深度的合作 java+script= javascript
+
+2003年之前，js其实很少有人使用，因为js就是垃圾广告的代名词。
+2004年，一家伟大的公司彻底改变了js的命运，这就公司就谷歌，因为谷歌推出了一种
+技术，这种技术一直沿用至今，仍然都是目前主流的技术(AJAX)
+ajax:异步加载
+
+js：
+一:
+	1.js是什么?
+		js一个可以嵌入到HTML网页当中，是基于对象和事件驱动的脚本语言
+	2.js的特点?
+		1.对于用户有非常良好的交互性
+		2.具备非常强的安全性(对于用户)，JS没有任何的权限可以访问你的系统资源和磁盘
+		3.是跨平台，因为是基于浏览器的
+	3.js能做什么?
+		1.js能够实时动态的修改你的CSS和你的HTML代码
+		2.能够动态的校验数据
+	4.js的组成
+		DOM(文档对象模型) 
+		BOM(浏览器对象模型)
+	5.怎么去使用js?
+		1.行内
+			<input type="button" value="我是个没用的东西"  onclick="alert('我被点击了')"/>
+		2.内部
+			<script type="text/javascript"/>
+				alert('我被加载了');			
+			</script>
+		3.外部
+			<script type="text/javascript" src="../js/js_demo.js"/>
+			
+	JS代码放在哪儿？
+		原则上,你JS放任意位置都没问题，但是在不影响功能的前提下，建议越晚加载越好
+	
+二:JS的基本语法
+		typeof获取当前数据的类型
+			 js当中的原始数据类型:
+			 		number:数字
+			 		string:字符串类型
+			 		boolean:布尔类型
+			 		null:空类型
+			 		underfind:未定义
+		number/string/boolean 伪数据类型(等同于java的自动拆装箱)
+	类型转型:
+		number/boolean类型转成string
+			toString();
+		string/boolean转number
+			parseInt();
+			parseFloat();
+		string转成number parseInt(x) 字符串必须开头包含数字，最后的结果就是开头的数字
+		
+	强制类型转换:
+		Boolean(),强转布尔
+			数字如果转成布尔,false即0 true即1
+			字符串如果转成布尔，空内容即false,有内容及true
+		Number()
+			布尔转数字，true即1 false即0
+			字符串转数字，不能转
+			
+	引用数据类型
+		java:Object ob = new Object();
+		js:var ob = new Number();
+		
+	运算符:
+		赋值运算:
+			var  x = 5;
+		算数运算:
+			+ - * /(操作跟java一致，你们不让我讲)
+		逻辑运算:
+			&& || 
+		比较运算:
+			< > <= >= != == ===
+		全等:需要数据类型和数据值完全匹配
+		三元运算:
+			3 > 2 ? 3 : 2;
+		void运算:
+			<a href="javascript:void(0)">点击我跳转</a>
+		类型运算符：
+			typeof:获取数据类型
+			instanceof:判断某一个数据是否为某种数据类型
+			
+	逻辑语句:
+		1.if
+			if(x > 5){
+				alert("大于");
+			}
+		2.if else	
+			if(x > 5){
+				alert("大于");
+			}else{
+				alert('小于');
+			}
+		3.switch(){
+			case "css":
+				alert("xxx");
+				break;
+			default:
+				alert("xxx");
+		}
+		4.for
+			for(var a = 0;a < 5;a++){
+				alert(a);
+			}
+		5.for in
+			var arr = [1,56,1,5,"s"];
+			for(s in arr){
+				//alert(s);//索引编号
+				alert(arr[s]);
+			}
+
+三、JS的内建对象
+	1.Number
+		创建 Number 对象的语法：
+			var myNum = new Number(value);
+			var myNum = Number(value);
+		属性跟方法:
+			toString 把数字转换为字符串。
+			valueOf 返回一个 Number对象的基本数字值。
+	2.Boolean
+		创建 Boolean 对象的语法：
+			var boo =	new Boolean(value);	//构造函数
+			var boo =	Boolean(value);		//转换函数
+		属性跟方法：
+			toString 把数字转换为字符串。
+			valueOf 返回一个 Number对象的基本数字值。
+	3.String 对象
+		创建 String 对象的语法：
+			var str = new String(value);
+			var str = String(value);
+		属性跟方法:
+			length:字符串的长度
+			charAt():返回在指定位置的字符。
+		    charCodeAt():返回在指定的位置的字符的 Unicode 编码。
+			indexOf():检索字符串。
+			lastIndexOf():逆向返回字符串的索引(数组的索引仍然从0开始)
+			split():根据正则表达式来切割字符串
+			substr():从起始索引号提取字符串中指定数目的字符。
+			substring():提取字符串中两个指定的索引号之间的字符。
+			toLocaleUpperCase():把字符串转换为大写。
+			toLocaleLowerCase():把字符串转换为小写。 			
+	4.Array 对象
+			var arr = new Array();//创建一个空数组
+			var arr = new Array(size);//创建一个指定长度的数组
+			var arr = new Array(element0, element1, ..., elementn);//创建数组并且实例化
+			var arr = [];//创建一个空数组
+			var arr = [5,5,515,"toobug"];//创建数组并且实例化
+		属性跟方法:
+			length:设置或返回数组中元素的数目。 
+			join():把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。 
+			pop():删除并返回数组的最后一个元素 
+			push():向数组的末尾添加一个或更多元素，并返回新的长度。 
+			reverse():颠倒数组中元素的顺序。 
+			sort():对数组的元素进行排序(字典顺序)
+			
+	5.Date 对象
+			var myDate = new Date();
+			var myDate=new Date(毫秒值);
+		属性跟方法：
+			getFullYear():获取年份
+			getMonth():获取月份 0-11
+			getDate():获取日 1-31。 
+			getDay():获取星期 0-6 (0代表星期天)
+			getTime():获取时间(返回的是毫秒数)
+			toLocaleString(毫秒数):根据毫秒数来格式化日期时间
+			
+	6.RegExp 对象
+			var email = new RegExp(pattern, attributes);
+		属性跟方法:
+			test:检索字符串中指定的值。返回 true 或 false。 
+			
+			
+四、函数的定义
+	1.js是如何去定义函数的
+		普通函数:
+			语法:function 函数名(参数列表){函数体}.
+		举例:
+			function method(){
+					alert("haha");
+				}
+			method();
+		
+		
+		匿名函数:
+			function(参数列表){函数体}
+		举例:
+			var method = function(){
+					alert("haha");
+			}
+			method();
+			
+		对象函数：
+			语法:new Function(参数列表,函数体);
+			注意:参数名称必须使用字符串，最后一个默认为函数体必须要以字符串形式表示
+			示例:
+			var fn = new Function("num","s","s3","alert(num+s+s3)");
+			fn(15,25,34);
+			
+		函数参数的问题:
+			1.形参不要使用var去进行修饰
+			2.形参的个数不一定和实参的个数一致，但是只能多不能少
+			3.函数当中，默认会有一个arguments将参数封装成一个数组
+			for(var i = 0;i < arguments.length;i++){
+					alert(arguments[i])
+			
+			}
+		
+		返回值：
+			1.js也是存在返回值的，只不过没有java那么强烈的要求
+			2.js在定义函数的时候，没有必要像Java一样去声明返回值类型
+			3.js可以通过return进行返回，return后面可以写语句，但是不会执行
+			
+			
+五、JS的事件
+	事件源:
+	响应行为:
+	事件:
+	1.js的常用事件
+		onclick:点击事件
+			<input type="button" value="点击"  onclick="fn();"/>
+			
+			function fn(){
+				alert('我被点击了');
+			}
+			
+			
+		onchange:域内容被改变的事件
+		
+			<select id="city">
+				<option value="hn">湖南</option>
+				<option value="gd">广东</option>
+				<option value="fj">福建</option>
+			</select>
+			<select id="area">
+				<option value="hn">湘潭</option>
+				<option value="gd">长沙</option>
+				<option value="fj">株洲</option>
+			</select>
+			
+			<script>
+				/*获取省级select的节点*/
+				var select = document.getElementById("city");
+				select.onchange = function() {
+					/*根据获取的节点，来获取所改变的value*/
+					var v = select.value;
+					/*根据value来判断用户改变的是什么*/
+					switch(v){
+						case 'hn':
+							/*获取城市select的节点*/
+							var area = document.getElementById("area");
+							/*改变元素节点下*/
+							area.innerHTML = '<option>湘潭</option>'+
+											 '<option>长沙</option>'+
+											 "<option>株洲</option>";
+							break;
+						case 'gd':
+							var area = document.getElementById("area");
+							area.innerHTML = '<option>深圳</option>'+
+											 '<option>广州</option>'+
+											 "<option>东莞</option>"+
+											 "<option>清远</option>";
+							break;
+						case 'fj':
+							var area = document.getElementById("area");
+							area.innerHTML = '<option>台湾</option>'+
+											 '<option>厦门</option>'+
+											 "<option>福州</option>"+
+											 "<option>清远</option>";
+							break;
+						
+					}
+					
+				}
+			</script>
+			
+			
+
+	onfocus:元素获得焦点 
+	onblur:元素失去焦点 
+		var userName = "admin888";
+		var text = document.getElementById("text");
+		
+		//获得焦点
+		text.onfocus = function() {
+			var span = document.getElementById("action");
+			span.innerHTML = "请输入6-11位的账号";
+			span.style.color = "green";
+		}
+		
+		
+		//失去焦点
+		text.onblur = function() {
+			var span = document.getElementById("action");
+			
+			if(text.value == null &&
+			   text.value == ""){
+				span.innerHTML = "请输入您的账号";
+				span.style.color = "red";
+				
+			}else{
+				var user = /^[A-z0-9_]{6,11}$/;
+				if(user.test(text.value)){
+					if(userName == text.value){
+						span.innerHTML = "您的账号已经存在";
+						span.style.color = "red";
+					}else{
+						span.innerHTML = "账号可用";
+						span.style.color = "green";
+					}
+					
+				}else{
+					span.innerHTML = "请输入6-11位的账号";
+					span.style.color = "red";
+				}
+			}
+		}
+		
+		
+	onmouseout 鼠标从某元素移开
+	onmouseover 鼠标被移到某元素之上 
+		<div class="c1" id="d1"></div>
+		
+		var d1 = document.getElementById("d1");
+		d1.onmouseover = function(){
+			this.style.backgroundColor = "green";
+		}
+		d1.onmouseout = function(){
+			this.style.backgroundColor = "red";
+		}
+
+		
+	onload:加载完毕事件
+		等待某个页面加载完毕所触发的事件
+		window.onload = function(){
+			var s = document.getElementById("s");
+			alert(s);
+			alert("HTML加载完毕");
+		}
+		
+	事件的绑定方式:
+		1.将时间的响应行为和HTML代码内嵌到一起
+			<input type="button" value="button" onclick="alert('我被点击了')" />
+		2.将事件的响应行为和函数进行封装
+			<input type="button" value="button" onclick="fn()" />
+			function fn(){
+				alert('我被点击了')
+			}
+		3.将事件的行为和HTML代码完全分离
+			<input type="button" id="btn" value="button"/>
+			
+			var btn = document.getElementById("btn");
+			btn.onclick = function(){
+				alert('我被点击了');
+			}
+	
+		this关键字:
+			this经过的事件进行传递的整个元素标签的所有属性
+			<input name="b_name" type="button" value="button" onclick="fn(this)" />
+			
+			function fn(t){
+				alert(t.value)
+			}
+六、js的BOM
+		window对象:
+			alert():显示带有一段消息和一个确认按钮的警告框。
+			confirm():显示带有一段消息以及确认按钮和取消按钮的对话框。
+			有返回值:确认即true/取消则false
+				for (;;) {
+					var v = confirm("我是最帅的人吗？");
+					if(v == true){
+						break;
+					}
+				}
+			
+		open() 打开一个新的网页。
+				window.open("http://www.baidu.com");
+				open("http://www.baidu.com");
+			open可以打开新的本地文件也可以打开新的url地址
+			
+		
+		prompt():显示可提示用户输入的对话框。
+		有返回值，如果输入框有数据则返回数据，如果输入框没有数据或者点击取消则返回的null
+		for(;;) {
+				var p = prompt("请确认", "请输入");
+				if(p == "admin") {
+					alert("您可以浏览网页");
+					break;
+				}
+			}
+			
+	定时器:
+		setTimeout() 在指定的毫秒数后调用函数或计算表达式。
+		setTimeout(js代码(函数),毫秒数);
+			setTimeout(
+				function(){
+					alert("龙哥又变帅了")
+				}
+				,2000);
+		
+		
+		clearTimeout():取消由 setTimeout() 方法设置的 timeout。 
+			var timer;
+			var fn = function(){
+				alert("toobug");
+				timer = setTimeout(fn,2000);
+			};
+			var closer = function(){
+				clearTimeout(timer);
+			}
+			
+			fn();
+			
+
+七、
+	1.根据id值来获取元素节点(重要):
+		document.getElementById("id的值")
+		
+	2.根据元素的name值来获取元素节点(重要)
+		document.getElementsByName("name的值");
+		
+		返回的一个数组
+			测试长度:inputName.length
+			遍历这个name的所有元素节点:
+				for(var i = 0;i < inputName.length;i++){
+					var inputNode = inputName[i];
+					alert(inputNode.value);
+				
+				}
+		为每个文本框(<input type="text">)增加change事件,当值改变时,输出改变的值
+			for(var i = 0;i < inputName.length;i++){
+				var inputNode = inputName[i];
+				inputNode.onchange = function(){
+					alert(this.value);
+				}
+			}
+			
+	3.根据标签名获取元素节点(重要)
+		document.getElementsByTagName("input");
+		
+		返回的是一个数组:
+			测试长度:inputNodes.length
+		遍历value的值
+			  for(var i = 0;i < inputNodes.length;i++){
+				alert(inputNodes[i].value)
+			  }
+			 
+		输出type="text"中 value属性的值 不包含按钮(button)
+
+		   for(var i = 0;i < inputNodes.length;i++){
+				var inputNode = inputNodes[i];
+				if(inputNode.type == "text"){
+					alert(inputNode.value)
+				}
+		    }
+			
+	4.判断该元素是否允许存在子节点(了解)
+		document.getElementById("tid_1"); 
+		edu.hasChildNodes();允许返回true/不允许则返回false
+		
+	5.通过元素来获取具体的内容值(有点印象)
+		var node = document.getElementById("tid_1");
+		获取该元素的首个子节点:node.firstChild;
+		获取该元素的元素标签名:node.nodeName
+		获取该元素的类型:node.nodeType  返回1则为元素节点 返回2则为属性节点
+		获取该元素的内容值:node.nodeValue 返回该元素节点的内容
+
+	6.获取指定元素的属性值(重要)
+		var xj =  document.getElementById("xj");
+		alert(xj.getAttribute("value"))
+
+	7.给指定元素添加属性值(重要)
+		var xj =  document.getElementById("xj");
+		alert(xj.setAttribute("属性名","属性值"))
+		
+		
+1.点击按钮或者标签来切换图片
+	<body>
+		<input type="button" value="点我换图片" id="btn" />
+		<img src="../img/j.jpg" id="img1" />
+	</body>
+	<script>
+		var btn = document.getElementById("btn");
+		btn.onclick = function(){
+			var img = document.getElementById("img1");
+			img.src = "../img/y.jpg";
+		}
+	</script>
+	
+
+2.实现图片自动轮播
+	<script>
+			/*
+			 	1.不需要准备任何的事件
+			 	2.怎么去实现轮播？	
+			 		2.1定时器
+			 	3.怎么切换图片
+			 */
+			var index = 0; //2
+			function changeImg(){
+				//1.获得是哪个元素进行图片的切换
+				var img = document.getElementById("img1");
+				//2.计算出要切换到第几张图片
+				var curIndex = index%3 + 1;//0 1 2 
+				img.src ="../img/"+curIndex+".jpg"//1
+				//每次切换完毕进行加1
+				index = index + 1;
+			}
+			
+			
+			function init(){
+				setInterval("changeImg()",1000);
+			}
+	</script>
+	
+	<body onload="init()">
+		<div>
+			<img src="../img/1.jpg" width="100%" id="img1">
+		</div>
+	</body>
+	
+3.定时弹出广告
+	<script>
+			function init(){
+				setTimeout("show()",3000);
+			}
+			function show(){
+				//获取需要操作广告的元素
+				var img = document.getElementById("img1");
+				//显示广告
+				img.style.display = "block";
+				//3秒之后再关闭广告
+				setTimeout("hide()",3000);
+			}
+			function hide(){
+				//获取需要操作广告的元素
+				var img = document.getElementById("img1");
+				//显示广告
+				img.style.display = "none";
+				//3秒之后再关闭广告
+			}
+	</script>
+	<img src="../img/y.jpg" id="img1" style="display: none;" />
+	
+4.实现表格的隔行换色 rows

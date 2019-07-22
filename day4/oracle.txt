@@ -1,0 +1,165 @@
+﻿--创建表空间
+create tablespace lifeng_ts
+datafile 'd:\oracle_date\lifeng.dbf' size 10m
+autoextend on next 1m;
+
+-修改表空间
+alter tablespace lifeng_ts
+add datafile 'd:\oracle_date\lifeng2.dbf' size 5m
+autoextend on;
+
+--删除表空间,同时删除数据文件
+drop tablespace lifeng_ts including contents and datafiles;
+
+--6.2.1 查询系统用户
+select * from all_users;
+
+--创建用户
+语法:create user 用户名 identified by 密码
+default tablespace 表空间;
+
+create user book identified by 12345
+default tablespace lifeng_ts;
+
+--修改用户
+语法:
+alter user 用户名 identified by 密码
+
+alter user book identified by 123
+
+--删除用户 语法
+drop user 用户名 cascade;
+
+drop user book cascade;
+
+--查看表空间
+select file_name,tablespace_name,bytes,autoextensible
+from dba_data_files
+where tablespace_name = 'LIFENG_TS';
+
+
+--解锁
+alter user book2 account unlock;
+--权限管理
+--查看当前用户的系统权限
+select *from user_sys_privs;
+
+--查看当前用户的对象权限
+select * from user_tab_privs;
+
+--给book用户create session 系统权限
+语法1
+grant 角色权限（角色）[,角色权限] to 用户;
+grant create session to book;
+
+--给book用户select表scott.emp的对象权限
+--未授权之前book用户查询scott.emp表会出现权限不够的问题
+
+select*from scott.emp;
+语法2
+grant 操作 on 模式,对象 to 用户;
+grant select on scott.emp to book;
+
+update scott.emp set sal = 10000 where empno = 7369;
+
+update select  table to book;
+--角色 一次性封装了许多权限
+
+grant resource,connect to book;
+
+--查看当前用户的所有角色
+select *from user_role_privs;
+
+select * from scott.emp;
+
+--回事对象权限
+revoke select on scott.emp from book;
+
+--回收角色
+revoke resource,connect from book;
+--回收登录权限
+revoke create session from book;
+
+--ddl
+--CHECK 
+create table  t_student(
+s_id number(8) primary key,
+s_name varchar2(20) not null,
+s_sex varchar2(8),
+clsid number(8),
+constraint u_1 unique(s_name),
+constraint c_1 check(s_sex in ('男','女'))
+);
+
+select *from t_student;
+
+select rowid,t.* from t_student t;
+
+select rownum,e.* from emp e;
+
+--查询工资最高的三位员工
+第一页
+select rownum，t.* from (select * from emp order by sal desc) t where rownum<=3;
+
+--分页
+第二页
+select rownum，t.* from (select * from emp order by sal desc) t where rownum>3 and rownum<=6;
+--会报错
+
+select rownum,emp.* from emp ;
+--第一页
+select rownum,emp.* from emp where rownum<=3;
+
+--查询rownum>3的记录,rownum不可以使用>号
+select rownum,emp.* from emp where rownum>3;
+
+--
+--每页3条:第一页
+select t.*from(select rownum rowno,e.* from emp e where rownum<=3) t where rowno>0;
+
+
+--每页3条:第二页
+select t.*from(select rownum rowno,e.* from emp e where rownum<=6) t where rowno>3;
+
+
+--每页3条:第三页
+select t.*from(select rownum rowno,e.* from emp e where rownum<=9) t where rowno>6;
+
+
+--每页3条:第四页
+select t.*from(select rownum rowno,e.* from emp e where rownum<=12) t where rowno>9;
+
+--分页通用公式
+--pagesize,pageno
+select t.*from(select rownum rowno,e.* from emp e where rownum<=(pagesize*pageno)) t where rowno>(pageno-1)*pagesize;
+
+--分页 工资并从大到小有序排序
+--pagesize,pageno
+select t.*from(select rownum rowno,e.* from (select * from emp order by sal desc) e where rownum<=(pagesize*pageno)) t where rowno>(pageno-1)*pagesize;
+
+自增长
+--序列 顺序
+create sequence seq_test
+increment by 1
+start with 1
+maxvalue 1000
+nocycle;
+
+--使用序列
+select seq_test.nextval from dual
+
+--序列 逆序
+create sequence seq_test2
+increment by -1
+start with 1000
+maxvalue 1000
+minvalue 1
+nocycle;
+
+--使用序列
+select seq_test2.nextval from dual
+
+insert into T_STUDENT values(seq_test.nextval,'aaa','男','201701');
+insert into T_STUDENT values(seq_test.nextval,'bbb','男','201702');
+insert into T_STUDENT values(seq_test.nextval,'ccc','女','201703');
+insert into T_STUDENT values(seq_test.nextval,'ddd','男','201704');

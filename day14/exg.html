@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head></head>
+<body>
+	<input id="btn" type="text" value="???"/>
+</body>
+<script>
+//	/^正则表达式$/
+	var regexp = new RegExp('[A-z]+[A-z0-9_-]*\@[A-z0-9_-]+\.cn'),
+	reg = /^'[A-z]+[A-z0-9_-]*\@[A-z0-9_-]+\.cn'$/;
+	console.log(reg.test('str1000@liu.cn'));
+	document.getElementById('btn').onclick = function(){
+		console.log("w3c");
+	};
+</script>
+
+
+</html>

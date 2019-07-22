@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.c1{
+				background:red;
+				width: 150px;
+				height: 150px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="c1" id="d1"></div>
+	</body>
+	<script type="text/javascript">
+		var d1 = document.getElementById("d1");
+		d1.onmouseover = function(){
+			this.style.backgroundColor = "green";
+		}
+		d1.onmouseout = function(){
+			this.style.backgroundColor = "red";
+		}
+		
+	</script>
+</html>

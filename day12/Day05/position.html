@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			.banner{
+				width:100%;
+				height: 700px;
+				margin: 0 auto;
+				background: url(img/2.jpg) no-repeat 100%;
+				float: left;
+			}
+			.nav{
+				width: 300px;
+				height:700px;
+				background:rgba(0,0,0,0.6);
+				/*定位:
+				 	绝对定位:position: absolute(脱标流)
+				 	特点:
+				 		元素使用绝对定位不再占用原来的位置
+				 		元素使用绝对定位，其位置是从浏览器出发
+				 		如果盒子有嵌套，父盒子在没有使用定位的情况下，子盒子使用绝对定位，其位置也是从浏览器出发
+				 		如果盒子有嵌套，父盒子有使用定位的情况下，子盒子使用绝对定位，其位置也是从父盒子出发
+				 		如果元素有使用定位,其位置被固定 任何情况下都无法影响其位置
+				 		如果行内元素有使用到绝对定位，会被直接转换成行内块元素(等同浮动)
+				 		
+				 		
+				 	相对定位:position: relative
+				 	特点:
+				 		元素使用相对定位仍然占据原来的位置
+				 		元素使用相对定位，其位置是从自身出发
+				 		如果元素有使用定位,其位置被固定 任何情况下都无法影响其位置
+				 		如果行内元素有使用到相对定位，其元素不能被转换成行内块
+				 		一般情况下，根据开发原则 要遵从子绝父相的开发原则
+				 		
+				 	固定定位:position: fixed
+				 	特点:
+				 		元素使用固定定位不再占据原来的位置
+				 		元素使用固定定位，其位置是从浏览器
+				 		如果元素有使用定位,其位置被固定 任何情况下都无法影响其位置
+				 		如果行内元素有使用到固定定位，会被直接转换成行内块
+				 	
+				*/
+				position: absolute;
+				left:0px;
+				top:0px;
+				
+			}
+			.nav li{
+				color: white;
+				list-style-type: none;
+				padding-left: -5px;
+				height: 36px;
+				line-height: 36px;
+			
+			}
+			
+			.fu{
+				margin: 0 auto;
+				width: 500px;
+				height: 500px;
+				background: goldenrod;
+				position: absolute;
+				left: 400px;
+			}
+			.zi{
+				width: 400px;
+				height: 400px;
+				background: green;
+				position: absolute;
+				left: 30px;
+				bottom:0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="fu">
+			<div class="zi">
+				
+			</div>
+		</div>
+		
+		<hr/>
+		<!------------------------------------------------->
+		<div class="banner">
+		</div>
+			<div class="nav">
+				<ul>
+					<li>手机 电话卡</li>
+					<li>情趣用品</li>
+					<li>QB</li>
+					<li>低音炮</li>
+					<li>屠龙宝刀</li>
+				</ul>
+			</div>
+		
+	</body>
+</html>

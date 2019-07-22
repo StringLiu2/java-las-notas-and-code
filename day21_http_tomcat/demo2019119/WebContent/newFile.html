@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表单</title>
+	</head>
+	<body>
+		<form method="post" action="/demo2019119/demo/login">
+			<input type="text" name="username" value="" placeholder="enter your username" />
+			<br />
+			<input type="password" name="password" value=""  />
+			<br />
+			<input type="radio" name="sex" value="0"  checked="checked"/>male
+			<input type="radio" name="sex" value="1"  />female
+			<br />
+			<input type="checkbox" name="fav" value="0"/>book
+			<input type="checkbox" name="fav" value="1"/>music
+			<input type="checkbox" name="fav" value="2"/>dance
+			<input type="checkbox" name="fav" value="3"/>ball
+			<br />
+			<select name="select">
+				<option value="-1">city</option>
+				<option value="0">gz</option>
+				<option value="1">fz</option>
+			</select>
+			<button>regist</button>
+			<input type="reset" value="reset" />
+		</form>
+	</body>
+</html>

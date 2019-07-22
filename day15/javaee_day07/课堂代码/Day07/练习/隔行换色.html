@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			function init(){
+				//获取整个表格
+				var tab = document.getElementById("tab");
+				//获取表格当中的每一行
+				var rows = tab.rows;
+				//根据得到的所有行，判断基偶数
+				for(var i = 0;i < rows.length ; i++){
+					if(i%2 == 0){
+						rows[i].bgColor = "red";
+					}else{
+						rows[i].bgColor = "green";
+					}
+				}
+			}
+			
+		</script>
+	</head>
+	<body onload="init()">
+		<table border="1px" width="500px" cellpadding="2px" id="tab" align="center" ">
+			<tr>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+				<tr>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+				<tr>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+				<tr>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+				<tr>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+				<tr>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+			
+				<tr>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+				<tr>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+				<tr>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+				<tr>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+			
+				<tr>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+				<tr>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+				<tr>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+		</table>
+	</body>
+</html>

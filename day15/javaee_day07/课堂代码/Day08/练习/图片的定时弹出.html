@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			/*显示广告的函数*/
+			function showAD(){
+				var img1 = document.getElementById("img1");
+				//将广告元素显示出来
+				img1.style.display = "block";
+				//调用隐藏广告的函数
+				setTimeout("hideAD()",5000);
+				
+			}
+			/*隐藏广告的函数*/
+			function hideAD(){
+				var img1 = document.getElementById("img1");
+				//将广告元素隐藏
+				img1.style.display = "none";
+				
+			}
+			
+			//初始化启动的函数
+			function init(){
+				//调用显示广告的函数
+				setTimeout("showAD()",5000);
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		<img src="../img/1.jpg" style="display: none;" id="img1" />
+	</body>
+</html>

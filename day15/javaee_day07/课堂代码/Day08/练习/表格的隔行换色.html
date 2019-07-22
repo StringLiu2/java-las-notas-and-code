@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			function init(){
+				var tab = document.getElementById("tab");
+				var rows = tab.rows;
+				for (var i = 1;i < rows.length;i++) {
+					var row = rows[i];
+					if(i%2 == 0){
+						row.bgColor = "red";
+					}else{
+						row.bgColor = "yellow";
+					}
+				}
+		}	
+		
+		
+		
+		
+		
+		
+		
+		
+		function checkAll(){
+			//获取第一个复选框的节点对象
+			var check1 = document.getElementById("checkone");
+			//获取第一个复选框的选中状态
+			var checked = check1.checked;
+			//测试返回的结果
+			//alert(checked);
+			
+			//获取所有分类checkbox的状态
+			//document.getElementsByTagName("input");
+			var checks = document.getElementsByName("checkone");
+			//测试长度
+			//alert(checks.length);
+			for(var i= 0;i<checks.length;i++){
+				//修改每一个checkbox的状态
+				var checkone = checks[i];
+				checkone.checked = checked;
+			}
+			
+		}
+		</script>
+	</head>
+	<body onload="init()"> 
+			 
+    <table id="tab" width="600px" border="1px" cellpadding="22px" cellspacing="0px" align="center">
+			<tr>
+				<td><input type="checkbox" id="checkone" onclick="checkAll()"></td>
+				<td>商品名</td>
+				<td>销售数量</td>
+				<td>销售金额</td>
+				<td>销售日期</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="checkone"></td>
+				<td>小米</td>
+				<td>1282</td>
+				<td>1234602.00</td>
+				<td>2018年11月11日14:58:34</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="checkone"></td>
+				<td>华为</td>
+				<td>2349</td>
+				<td>2949502.00</td>
+				<td>2018年11月11日14:58:53</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="checkone"></td>
+				<td>苹果</td>
+				<td>9102</td>
+				<td>910380302.00</td>
+				<td>2018年11月11日14:59:22</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="checkone"></td>
+				<td>OPPO</td>
+				<td>912</td>
+				<td>19303.00</td>
+				<td>2018年11月11日14:59:40</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="checkone"></td>
+				<td>OPPO</td>
+				<td>912</td>
+				<td>19303.00</td>
+				<td>2018年11月11日14:59:40</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="checkone"></td>
+				<td>OPPO</td>
+				<td>912</td>
+				<td>19303.00</td>
+				<td>2018年11月11日14:59:40</td>
+			</tr>
+		</table>
+	</body>
+</html>

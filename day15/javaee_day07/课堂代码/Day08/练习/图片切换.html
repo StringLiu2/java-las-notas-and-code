@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body onload="fn()">
+		<img src="../img/1.jpg" id="img1" /><br/>
+		<input type="button" value="切换" id="changeImg" onclick="cahngeImg()" />
+	</body>
+	
+	
+	<script>
+		function cahngeImg(){
+			var img = document.getElementById("img1");
+//			alert(img.src);
+			img.src = "../img/"+(num++)+".jpg";	
+		}
+	</script>
+</html>

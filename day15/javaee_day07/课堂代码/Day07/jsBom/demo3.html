@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			var timer = setInterval(
+				function(){
+					alert("toobug");
+				},
+			4000);
+			
+			var closer = function(){
+				clearInterval(timer);
+			}
+		</script>
+	</head>
+	<body>
+			<input type="button" onclick="closer()" />
+	</body>
+</html>

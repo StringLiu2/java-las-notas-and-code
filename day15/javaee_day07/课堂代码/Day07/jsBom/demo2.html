@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			var timer;
+			var fn = function(){
+				alert("toobug");
+				timer = setTimeout(fn,2000);
+			};
+			var closer = function(){
+				clearTimeout(timer);
+			}
+			
+			fn();
+		</script>
+	</head>
+	<body>
+		<input type="button" value="button" onclick="closer()" />
+	</body>
+</html>

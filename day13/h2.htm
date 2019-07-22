@@ -1,0 +1,37 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+	input{
+		
+	}
+</style>
+</head>
+<body>
+	账号:<input type="text" id="user" value=""/><span id="s1"></span><br/>
+	密码:<input type="password" id="password" value=""/><span id="s2"></span>
+</body>
+<script type="text/javascript">
+var select = document.getElementById("user");
+	select.onfocus = function(){
+		var area = document.getElementById("s1");
+			area.innerHTML = "请输入6-11位的账号";
+			area.style.color="green";
+	}
+	var reg = /^[1-9][0-9]{5,10}$/;
+	select.onblur = function(){
+		var val = select.value;
+		var boo = reg.test(val);
+		area = document.getElementById("s1");
+		if(boo == false){		
+			area.innerHTML = "您输入的账户不合法";
+			area.style.color="red";			
+		}else{
+			area.innerHTML = "正确输入!!!";
+			area.style.color="blue";
+		}
+	}
+	
+	
+</script>
+</html>

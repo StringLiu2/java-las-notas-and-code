@@ -1,0 +1,94 @@
+列表:
+	无序列表:
+			<!--ul是对浏览器声明，他的子项是无序列表 
+				type="disc"   默认
+				type="square" 实心方块
+				type="circle" 空心圆
+				注意:一般情况下，我们不会去设置列表项的显示图案，只会尽可能的干掉他
+			-->
+			<ul type="circle">
+				<!--li是这个无序列表的每个列表项-->
+				<li>橘梨纱</li>
+				<li>刘飞龙</li>
+				<li>赵丽颖</li>
+			</ul>
+	有序列表:
+			<!--ol是对浏览器声明，他的子项是有序列表 
+				type="2"   默认
+				type="A/a" 使用字母
+				type="I/i" 使用罗马字符
+				注意:一般情况下，我们不会去设置列表项的显示图案，只会尽可能的干掉他
+			-->
+			<ol type="6-15">
+				<!--li是这个有序列表的每个列表项-->
+				<li>橘梨纱</li>
+				<li>刘飞龙</li>
+				<li>赵丽颖</li>
+				<li>橘梨纱</li>
+				<li>刘飞龙</li>
+				<li>赵丽颖</li>
+			</ol>
+			
+	定义列表:
+			<dl>
+				<!--声明为列表的标题-->
+				<dt>橘梨纱最爱的</dt>
+				<!--声明为这个标题下面的内容-->
+					<dd>toobug</dd>
+					<dd>刘飞龙</dd>
+				<dt>凤姐爱</dt>
+					<dd>toobug</dd>
+					<dd>刘飞龙</dd>
+			</dl>
+	
+	
+练习:
+	我的电脑文件
+	
+			<ul>
+				<li>我的电脑
+					<ul>
+						<li>本地磁盘C
+							<ul>
+								<li>我的电影</li>
+								<li>我的橘梨纱</li>
+							</ul>
+						</li>
+						<li>本地磁盘D
+							<ul>
+								<li>我的资料</li>
+								<li>我的全家福</li>
+							</ul>
+						</li>
+					</ul>
+				
+				</li>
+			</ul>
+			
+			
+			
+表格:
+		<!--说明这是一个表格的结构-->
+		<table>
+			<!--一个tr即代表表格的一行-->
+			<tr align="center" bgcolor="fuchsia">
+				<!--一个td即代表这个行里面的一个单元格-->
+				<td bgcolor="aqua">橘梨纱</td>
+			</tr>
+		</table>	
+		
+		表格的边框:border="1" 
+		表格的宽度:width="300px" 
+		表格的高度:height="100px" 
+		单元格与单元格之间的间距:cellspacing="0px" 
+		单元格内容与单元格内间距:cellpadding="10px"
+		水平对齐的方式:align="center"(左/中/右)[如果是table设置，则设置的是表格的对齐的方式]
+		设置背景颜色:bgcolor="fuchsia"
+		
+		
+		<table>
+			<thead></thead>
+			<tbody></tbody>
+		</table>	
+		
+			

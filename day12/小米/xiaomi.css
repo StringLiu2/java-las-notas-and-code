@@ -1,0 +1,315 @@
+	#photo{
+		margin:0 auto;
+		width:1226px;
+		height:460px;
+		background:url("小米8.jpg") no-repeat;
+		box-shadow:10px 10px 15px 10px rgba(0,0,0,0.2);
+		border-radius:15px;
+	}
+	#text{
+		float:left;
+		background-color:rgba(0,0,0,0.6);
+		border-radius:15px;
+		height:440px;
+		width:250px;
+		padding-top:5px;
+		padding-bottom:15px;
+	}
+	ul{
+		list-style-type:none;
+		padding-left:0px;
+	}
+	li{
+		height:42px;
+		line-height:42px;
+		text-indent:2em;
+		background:url("白色小箭头.svg") no-repeat;
+		background-position-x:200px;
+		background-position-y:10px;
+		background-size:8%;
+	}
+	li:hover{
+		background-color:#ff6700;
+		height:55px;
+		line-height:55px;
+		text-indent:2.5em;
+		font-size:18px;
+		box-shadow:5px 5px 15px 8px rgba(0,0,0,0.2);
+		transition:all 0.5s ease-in;
+		background-position-y:10px;
+		background-position-x:210px;
+		background-size:12%;
+	}
+	a{
+		text-decoration:none;
+		color:rgb(255, 255, 255);
+	}
+	a>div{
+		height:41px;
+		float:right;
+		font-size:25px;
+		margin-right:20px;
+	}
+	#jt1{
+		border-radius:5px;
+		width:31px;
+		height:60px;
+		line-height:45px;
+		float:left;
+		font-size:60px;
+		position:relative;
+		top:41%;
+	}
+	#jt2{
+		border-radius:5px;
+		width:31px;
+		height:60px;
+		line-height:45px;
+		float:right;
+		font-size:60px;
+		position:relative;
+		top:41%;
+	}
+	#jt1:hover{
+		background-color:rgba(0,0,0,0.6);
+		color:white;
+	}
+	#jt2:hover{
+		background-color:rgba(0,0,0,0.6);
+		color:white;
+	}
+	#bottom{
+		margin:0 auto;
+		margin-top:20px;
+		width:1226px;
+		height:705px;
+		border-radius:15px;
+		box-shadow:10px 10px 15px 10px rgba(0,0,0,0.2);
+	}
+	#xg{
+		width:250px;
+		height:160px;
+		float:left;
+		background-color:#666666;
+	}
+	#xg_1{
+		background:url("sj.svg") no-repeat;
+		background-size:45%;
+		background-position-x:23px;
+		background-position-y:10px;
+		border-right:1px solid;
+		border-bottom:1px solid;
+	}
+	#xg_2{
+		background:url("tg.svg") no-repeat;
+		background-size:38%;
+		border-right:1px solid;
+		background-position-x:26px;
+		background-position-y:13px;
+		border-bottom:1px solid;
+	}
+	#xg_3{
+		background:url("fma.svg") no-repeat;
+		background-size:38%;
+		background-position-x:25px;
+		background-position-y:13px;
+		border-bottom:1px solid;
+	}
+	#xg_4{
+		background:url("sjk.svg") no-repeat;
+		background-size:38%;
+		border-right:1px solid;
+		background-position-x:25px;
+		background-position-y:13px;
+	}
+	#xg_5{
+		background:url("h.svg") no-repeat;
+		background-size:50%;
+		border-right:1px solid;
+		background-position-x:21px;
+		background-position-y:10px;
+	}
+	#xg_6{
+		background:url("hfjh.svg") no-repeat;
+		background-size:38%;
+		background-position-x:25px;
+		background-position-y:12px;
+	}
+	#xg>div{
+		float:left;
+		width:81.4px;
+		height:78px;
+		font-size:13px;
+		color:#CFCFCF;
+		text-align:center;
+	}
+	#mix2s{
+		margin-left:15px;
+		width:310px;
+		height:160px;
+		float:left;
+	}
+	#redmi6{
+		margin-left:15px;
+		width:310px;
+		height:160px;
+		float:left;
+	}
+	#mish3{
+		margin-left:15px;
+		width:311px;
+		height:160px;
+		float:left;
+	}
+	#xmsg{
+		float:left;
+		margin-top:40px;
+		width:1226px;
+		height:35px;
+		line-height:20px;
+		font-size:24px;
+		color:#333333;
+	}
+	#sg_1{
+		box-shadow:0px 2px 0px 2px rgba(0,0,0,0.1);
+		margin-top:6px;
+		width:35px;
+		height:20px;
+		border:1px solid #999999;
+		float:right;
+		background:url("灰色小箭头.svg") no-repeat;
+		background-position-x:8px;
+	}
+	#sg_2{
+		box-shadow:0px 2px 0px 2px rgba(0,0,0,0.1);
+		margin-top:6px;
+		height:20px;
+		width:35px;
+		border:1px solid #999999;
+		float:right;
+		margin-right:0px;
+		background:url("灰色小箭头左.svg") no-repeat;
+		background-size:40%;
+		background-position-x:10px;
+		background-position-y:3px;
+	}
+	#bdc{
+		float:left;
+		width:233.2px;
+		height:320px;
+	}
+	#mizh{
+		border-top:2px solid green;
+		margin-left:15px;
+		float:left;
+		margin-top:2px;
+		width:233.2px;
+		height:318px;
+		background:url("钥匙扣.jpg") no-repeat;
+		background-position-x:50px;
+		background-position-y:50px;
+		background-size:130px;
+		background-color:#D2C2A9;
+	}
+	#mizh>div{
+		width:150px;
+		height:100px;
+		margin-left:40px;
+		margin-top:200px;
+	}
+	#mizh>div>p{
+		font-size:17px;
+		line-height:10px;
+		font-weight:bold;
+	}
+	.mi_1{
+		width:150px;
+		height:30px;
+		margin:0 auto;
+		margin-top:20px;
+		text-align:center;
+	}
+	.span_1{
+		color:#999999;
+	}
+	.span_2{
+		color:red;
+	}
+	#redmi{
+		border-top:2px solid blue;
+		margin-left:15px;
+		float:left;
+		margin-top:2px;
+		width:233.2px;
+		height:318px;
+		background:url("红米.jpg") no-repeat;
+		background-position-x:50px;
+		background-position-y:50px;
+		background-size:130px;
+		background-color:#E8DDC9;
+	}
+	#redmi>div{
+		width:150px;
+		height:100px;
+		margin-left:45px;
+		margin-top:200px;
+	}
+	#redmi>div>p{
+		font-size:17px;
+		line-height:10px;
+		font-weight:bold;
+	}
+	#micdb{
+		border-top:2px solid red;
+		margin-left:15px;
+		margin-top:2px;
+		float:left;
+		width:233.2px;
+		height:318px;
+		background:url("充电宝.jpg") no-repeat;
+		background-position-x:50px;
+		background-position-y:50px;
+		background-size:130px;
+		background-color:#C5AD95;
+	}
+	#micdb>div{
+		width:150px;
+		height:100px;
+		margin-left:40px;
+		margin-top:200px;
+	}
+	#micdb>div>p{
+		font-size:17px;
+		line-height:10px;
+		font-weight:bold;
+	}
+	#misxt{
+		border-top:2px solid orange;
+		margin-left:15px;
+		margin-top:2px;
+		float:left;
+		width:233.2px;
+		height:318px;
+		background:url("摄像头.jpg") no-repeat;
+		background-position-x:50px;
+		background-position-y:50px;
+		background-size:130px;
+		background-color:#D6EAF5;
+	}
+	#misxt>div{
+		width:150px;
+		height:100px;
+		margin-left:45px;
+		margin-top:200px;
+	}
+	#misxt>div>p{
+		font-size:17px;
+		line-height:10px;
+		font-weight:bold;
+	}
+	#mi8{
+		float:left;
+		margin-top:40px;
+		width:1226px;
+		height:120px;
+	}

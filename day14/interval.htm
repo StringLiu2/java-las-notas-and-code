@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title></title>
+		</head>
+		<style>
+			#box{
+				position:absolute;
+				margin:0 auto;
+				width:280px;
+				height:280px;
+				font-size:100px;
+				color:red;
+				border-radius:50%;
+				background:#888888;
+			}
+			#text{
+				position:absolute;
+				top:58px;
+				left:41%;
+				width:280px;
+				height:30px;
+			}
+		</style>
+	<body>
+		<div id ='box'>
+		<div id="text"></div>
+		</div>
+	</body>
+	<script>
+		var num = 5,
+		box = document.getElementById('box'),
+		text = document.getElementById('text');
+		var s = setInterval(
+			function(){
+				text.innerText=num;
+				num--;
+				if(num == 0){
+					clearInterval(s);
+					open('http://www.baidu.com');
+					text.innerHTML='';
+				}
+			}
+			,1000);
+		
+	</script>
+</html>

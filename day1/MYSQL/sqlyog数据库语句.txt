@@ -1,0 +1,30 @@
+用户名：oyksoft注册码：26f359fc-e3f6-4727-8af1-72a1a4a0819d
+上面为sqlyog的注册码
+
+--DDL操作库
+--删除数据库DROP
+DROP DATABASE mydb1;
+--创建数据库CREATE
+CREATE DATABASE mydb2;
+不区分大小写、但一定要以;结尾
+--创建数据库
+CREATE DATABASE mydb2 CHARACTER SET gbk;
+--修改数据库
+ALTER DATABASE mydb2 CHARACTER SET UTF8;
+--查看所有数据库
+SHOW DATABASES;
+--查看前面创建的mydb1数据库定义的信息
+SHOW CREATE DATABASE mydb1;
+--查看当前使用的数据库
+SELECT DATABASE();
+--切换数据库
+USE mydb1;
+--DDL操作表
+--创建表
+CREATE TABLE employee(
+	empno CHAR(5),//五个长度
+	empname VARCHAR(10),//可变长度字符串字符
+	age INT,
+	gender CHAR(2),
+	job VARCHAR(10)
+);

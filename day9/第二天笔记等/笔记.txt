@@ -1,0 +1,185 @@
+﻿列表:
+	无序列表:
+			<!--ul是对浏览器声明，他的子项是无序列表 
+				type="disc"   默认
+				type="square" 实心方块
+				type="circle" 空心圆
+				注意:一般情况下，我们不会去设置列表项的显示图案，只会尽可能的干掉他
+			-->
+			<ul type="circle">
+				<!--li是这个无序列表的每个列表项-->
+				<li>橘梨纱</li>
+				<li>刘飞龙</li>
+				<li>赵丽颖</li>
+			</ul>
+	有序列表:
+			<!--ol是对浏览器声明，他的子项是有序列表 
+				type="1"   默认
+				type="A/a" 使用字母
+				type="I/i" 使用罗马字符
+				注意:一般情况下，我们不会去设置列表项的显示图案，只会尽可能的干掉他
+			-->
+			<ol type="6-15">
+				<!--li是这个有序列表的每个列表项-->
+				<li>橘梨纱</li>
+				<li>刘飞龙</li>
+				<li>赵丽颖</li>
+				<li>橘梨纱</li>
+				<li>刘飞龙</li>
+				<li>赵丽颖</li>
+			</ol>
+			
+	定义列表:
+			<dl>
+				<!--声明为列表的标题-->
+				<dt>橘梨纱最爱的</dt>
+				<!--声明为这个标题下面的内容-->
+					<dd>toobug</dd>
+					<dd>刘飞龙</dd>
+				<dt>凤姐爱</dt>
+					<dd>toobug</dd>
+					<dd>刘飞龙</dd>
+			</dl>
+	
+	
+练习:
+	我的电脑文件
+	
+			<ul>
+				<li>我的电脑
+					<ul>
+						<li>本地磁盘C
+							<ul>
+								<li>我的电影</li>
+								<li>我的橘梨纱</li>
+							</ul>
+						</li>
+						<li>本地磁盘D
+							<ul>
+								<li>我的资料</li>
+								<li>我的全家福</li>
+							</ul>
+						</li>
+					</ul>
+				
+				</li>
+			</ul>
+			
+			
+			
+表格:
+		<!--说明这是一个表格的结构-->
+		<table>
+			<!--一个tr即代表表格的一行-->
+			<tr align="center" bgcolor="fuchsia">
+				<!--一个td即代表这个行里面的一个单元格-->
+				<td bgcolor="aqua">橘梨纱</td>
+			</tr>
+		</table>	
+		
+		表格的边框:border="1" 
+		表格的宽度:width="300px" 
+		表格的高度:height="100px" 
+		单元格与单元格之间的间距:cellspacing="0px" 
+		单元格内容与单元格内间距:cellpadding="10px"
+		水平对齐的方式:align="center"(左/中/右)[如果是table设置，则设置的是表格的对齐的方式]
+		设置背景颜色:bgcolor="fuchsia"
+		设置边框的颜色:bordercolor="red"
+		合并同一个行上的单元格:colspan="2"
+		合并同一个列上的单元格:rowspan="2"
+		
+	表格语义化:
+		<table>
+			<thead></thead> -- 表头
+			<tbody></tbody> -- 表身
+			<tfoot></tfoot> -- 表尾
+		</table>	
+		
+		表格语义化写法和普通表格没有任何区别，只不过表格语义化有益于搜索引擎的摘取
+		
+	
+		
+网页的常用设置:
+		<!--设置网页关键字-->
+		<meta name="keywords" content="刘飞龙,toobug,世界上最帅的人,世界上最好的人,枪支迷药" />
+		<!--设置网页描述-->
+		<meta name="description" content="刘飞龙何时出来的" />
+		<!--设置网页的作者-->
+		<meta name="author" content="橘梨纱" />
+		<!--设置网页的字符集编码-->
+		<meta charset="utf-8" />
+		<!--网页重定向-->
+		<meta http-equiv="refresh" content="5,http://www.baidu.com" />
+		
+表单:
+	    表单的作用:负责数据采集
+		表单主要分为表单控件、提示信息、表单域
+		表单控件:
+			包含了具体的表单功能，比如按钮、输入框、单选框、复选框、密码框、下拉框等等
+		提示信息:
+			一个完整的表单应该包含对于用户的友好提示，或者一些能够对事件进行解释说明的文字
+		表单域:
+			其实就相当于一个容器，这个容器包含了所有的控件和提示信息，可以通过定义相关控件
+			来处理不同的信息，也可以将这些信息发送到服务器后台当中，如果不定义表单域，也就
+			意味着你这里输入的所有信息是无法发送到服务端。
+
+表单怎么写?
+	表单域:
+		<form action="login.do" name="login" method="get|post">
+		</form>
+	action:用于提交表单信息到服务端的某个(脚本)程序
+	name:你这个表单域的名字，主要用户后端进行获取 前端并没有多大用处
+	method：你这个表单的提交方式，默认参数为get
+		get:所有的数据以参数进行提交，所提交的参数会直接显示在你的url(如果是敏感数据或者大容量数据，一般不建议使用get进行提交)
+		post:适合敏感数据和大容量数据的提交，他提交的方式为实体参数，url并不会直接显示
+		
+表单控件:			
+					<!--文本框 readonly-->
+					账号:<input type="text" maxlength="6"  name="username" value="请输入你的账号"/>
+				<!--密码框-->
+				密码:<input type="password"/>
+				<!--密码框-->
+				性别:<input type="radio" name="y"/>男
+				<input type="radio" name="y" />女
+				<!--复选框-->
+				爱好:<input type="checkbox" name="kl"/>喝可乐						<input type="checkbox" name="lm"/>撩妹
+				<input type="checkbox"/>爱橘梨纱
+				<input type="checkbox"/>学习JAVA
+				<!--下拉框-->
+				家庭住址:<select>
+					<option value="hn">湖南</option>
+					<option selected>广东</option>
+					<option>湖北</option>
+					<option>福建</option>
+					<option>江苏</option>
+					<option>北京</option>
+				</select> <select>
+					<option>湘潭</option>
+					<option>永州</option>
+					<option>深圳</option>
+					<option>湘西</option>
+					<option>长沙</option>
+					<option>张家界</option>
+				</select>
+						
+					<!--上传组件-->
+					请上传橘梨纱:<input type="file" />
+					
+					<!--提交按钮-->
+					<input type="submit" value="提交" />
+					<!--重置按钮-->
+					<input type="reset" value="重写" />
+					<!--图片-->
+					<input type="image" src="img/img.png" />
+					<!--普通按钮-->
+					<input type="button" value="提交" />
+
+	
+	maxlength="6"  	设置输入框的输入长度
+	name="username" 设置控件的名字,这个参数主要给后端工程师进行调用
+	value="请输入你的账号" 控件的实际内容，后端工程师所需要的其实就是这个内容
+	readonly="readonly" 设置控件只读状态(不可编辑)
+	selected="selected" 用于设置下拉框的默认选项
+	submit:提交后立即执行到服务器
+	image:理论上跟submit一致，但是一般只配合js使用
+	button:普通按钮，没有任何效果，但是用的非常多 一般配合js使用

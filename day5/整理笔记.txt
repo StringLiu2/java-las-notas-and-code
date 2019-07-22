@@ -1,0 +1,351 @@
+目前关系数据库有六种范式：第一范式（1NF）、第二范式（2NF）、第三范式（3NF）、巴斯-科德范式（BCNF）、第四范式(4NF）和第五范式（5NF，还又称完美范式）
+
+在1NF基础上，任何非主属性不依赖于其它非主属性[在2NF基础上消除传递依赖]。第三范式（3NF）是第二范式（2NF）的一个子集，即满足第三范式（3NF）必须满足第二范式（2NF）。它要求一个关系中不包含已在其它关系包含的非主关键字信息。
+
+1.JDBC-MySQL
+
+//			因此Mysql8.0连接JDBC驱动需要注意以下几点：
+//
+//			1，驱动的类换了个名字
+//			Class.forName("com.mysql.cj.jdbc.Driver");
+//			加上useSSL=true或false 
+//			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/students?useSSL=true", "root", "123456");
+//			加上serverTimezone=GMT
+//			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/students?useSSL=true&serverTimezone=GMT", "root", "123456");
+
+public class ConnectMySQL {
+	//连接数据库的字符串
+	private static String url = "jdbc:mysql://127.0.0.1:3306/students";
+	//jdbc协议+数据库协议+主机地址+端口+连接的数据库
+	//用户名
+	private static String user = "root";
+	//密码
+	private static String password = "root";
+
+	public static void main(String[] args) {
+		try{
+			//1.加载驱动
+			Class.forName("com.mysql.jdbc.Driver"); //5.0版本
+			//2.建立连接
+			Connection conn = DriverManager.getConnection(url, user, password);
+			System.out.println("连接成功,可操作数据库,增删改查");
+			//连接成功后即可操作数据库,增删改查
+			//查找数据库
+			//(1)创建SQL语句字符串
+			String sql = "select * from studentinfo";
+			//(2)定义发送SQL语句的运载工具PrepareStatement;
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			//(3)执行查询
+			ResultSet rs = pstmt.executeQuery();
+			//(4)取值
+			//rs.next();//rs最初的位置 第0行  指针
+			while(rs.next()){
+				System.out.println("学生学号:"+rs.getString("studentno")+",学生姓名:"+rs.getString("studentname")+",出生日期:"+rs.getDate("birthday")+",专业"+rs.getString("speciality")+
+						",班级"+rs.getString("class")+",是否开生日会:"+rs.getInt("isparty")+",邮箱:"+rs.getString("email")+",qq:"+rs.getString("qq")+",家庭地址:"+rs.getString("homeaddress"));
+			}
+			//关闭连接
+			conn.close();
+			Thread.sleep(3000);
+			System.out.println("关闭成功");
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+
+}
+
+2.JDBC-ORACLE
+public class ConnectOracle {
+	//连接数据库的字符串
+		private static String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+									//jdbc协议+数据库协议+主机地址+端口+连接的数据库
+		//用户名
+		private static String user = "scott";
+		//密码
+		private static String password = "orcl";
+		
+		public static void main(String[] args) {
+			try{
+				//1.加载驱动
+				Class.forName("oracle.jdbc.driver.OracleDriver");
+				//2.建立连接
+				Connection conn = DriverManager.getConnection(url, user, password);
+				//连接成功后即可操作数据库,增删改查
+				
+				System.out.println("连接成功,可操作数据库,增删改查");
+				
+				//关闭连接
+				conn.close();
+				Thread.sleep(3000);
+				System.out.println("关闭成功");
+			}catch(Exception e){
+			e.printStackTrace();
+			}
+		}
+}
+3.MySQL扩展:
+	private static String url = "jdbc:mysql://127.0.0.1:3306/students";
+	//jdbc协议+数据库协议+主机地址+端口+连接的数据库
+	//用户名
+	private static String user = "root";
+	//密码
+	private static String password = "root";
+	public static void main(String[] args) {
+//		MySQL();
+//		MySQL1("20170101");
+		login1();
+	}
+	private static void login(){
+		Scanner sc = new Scanner(System.in);
+		System.out.println("请输入用户名:");
+		String username =sc.nextLine();
+		System.out.println("请输入密码:");
+		String pwd = sc.nextLine();
+		try{
+			//1.加载驱动
+			Class.forName("com.mysql.jdbc.Driver"); //5.0版本
+			//2.建立连接
+			Connection conn = DriverManager.getConnection(url, user, password);
+			//连接成功后即可操作数据库,增删改查
+			//查找数据库
+			//(1)创建SQL语句字符串
+			String sql = "select * from user where username=? and password=?";
+			//(2)定义发送SQL语句的运载工具PrepareStatement;
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			//(3)执行查询
+			//通过占位符的位置索引来添加所要查找的内容
+			pstmt.setString(1,username);
+			pstmt.setString(2,pwd);
+			ResultSet rs = pstmt.executeQuery();
+			//(4)取值
+			//rs.next();//rs.next()-->最初的位置 第0行  指针 会一直往下移
+			if(rs.next()){
+				System.out.println("登录成功");
+			}else{
+				System.out.println("登录失败");
+			}
+			//关闭连接
+			conn.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	} 
+	private static void login1(){
+		Scanner sc = new Scanner(System.in);
+		System.out.println("请输入用户名:");
+		String username =sc.nextLine();
+		System.out.println("请输入密码:");
+		String pwd = sc.nextLine();
+		try{
+			//1.加载驱动
+			Class.forName("com.mysql.jdbc.Driver"); //5.0版本
+			//2.建立连接
+			Connection conn = DriverManager.getConnection(url, user, password);
+			//连接成功后即可操作数据库,增删改查
+			//查找数据库
+			//(1)创建SQL语句字符串
+			//不过这样并不推荐 由于MySQL的注入漏洞 会造成一些不必要的原因
+			//当输入的账户或密码 有   or '1'='1 时  会造成漏洞
+			String sql = "select * from user where username='"+username+"' and password='"+pwd+"'";
+			//(2)定义发送SQL语句的运载工具PrepareStatement;
+			Statement pstmt = conn.createStatement();
+			//(3)执行查询
+			ResultSet rs = pstmt.executeQuery(sql);
+			//(4)取值
+			//rs.next();//rs.next()-->最初的位置 第0行  指针 会一直往下移
+			if(rs.next()){
+				System.out.println("登录成功");
+			}else{
+				System.out.println("登录失败");
+			}
+			//关闭连接
+			conn.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	} 
+	private static void MySQL1(String no){
+		try{
+			//1.加载驱动
+			Class.forName("com.mysql.jdbc.Driver"); //5.0版本
+			//2.建立连接
+			Connection conn = DriverManager.getConnection(url, user, password);
+			//连接成功后即可操作数据库,增删改查
+			//查找数据库
+			//(1)创建SQL语句字符串
+			String sql = "select * from studentinfo where studentno=?";
+			//(2)定义发送SQL语句的运载工具PrepareStatement;
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			//(3)执行查询
+			//通过占位符的位置索引来添加所要查找的内容
+			pstmt.setString(1,no);
+			ResultSet rs = pstmt.executeQuery();
+			//(4)取值
+			//rs.next();//rs.next()-->最初的位置 第0行  指针 会一直往下移
+			if(rs.next()){
+				//使用索引代表列名
+				System.out.println("学生学号:"+rs.getString(1)+",学生姓名:"+rs.getString(2)+",出生日期:"+rs.getDate(4)+",专业"+rs.getString(5)+
+						",班级"+rs.getString(6)+",是否开生日会:"+rs.getInt(7)+",邮箱:"+rs.getString(8)+",qq:"+rs.getString(9)+",家庭地址:"+rs.getString(10));
+			}
+			//关闭连接
+			conn.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	} 
+	private static void MySQL(){
+		try{
+			//1.加载驱动
+			Class.forName("com.mysql.jdbc.Driver"); //5.0版本
+			//2.建立连接
+			Connection conn = DriverManager.getConnection(url, user, password);
+			//连接成功后即可操作数据库,增删改查
+			//查找数据库
+			//(1)创建SQL语句字符串
+			String sql = "select * from studentinfo";
+			//(2)定义发送SQL语句的运载工具PrepareStatement;
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			//(3)执行查询
+			ResultSet rs = pstmt.executeQuery();
+			//(4)取值
+			//rs.next();//rs.next()-->最初的位置 第0行  指针 会一直往下移
+			while(rs.next()){
+				System.out.println("学生学号:"+rs.getString("studentno")+",学生姓名:"+rs.getString("studentname")+",出生日期:"+rs.getDate("birthday")+",专业"+rs.getString("speciality")+
+						",班级"+rs.getString("class")+",是否开生日会:"+rs.getInt("isparty")+",邮箱:"+rs.getString("email")+",qq:"+rs.getString("qq")+",家庭地址:"+rs.getString("homeaddress"));
+			}
+			//关闭连接
+			conn.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+}
+	private static void 查看() {
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn = DriverManager.getConnection(url, user, password);
+			System.out.println("连接成功,可操作数据库,增删改查");
+			Scanner input =new Scanner(System.in);
+			String sql = "select * from emp";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()){
+				System.out.println(rs.getInt(1)+"\t\t"+rs.getString(2)+"\t\t"+rs.getString(3)+"\t\t"+rs.getInt(4)+"\t\t"+rs.getDate(5)+"\t\t"+rs.getDouble(6)+"\t\t"+rs.getDouble(7)+"\t\t"+rs.getInt(8));
+			}
+			conn.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	private static void 删除() {
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn = DriverManager.getConnection(url, user, password);
+			System.out.println("连接成功,可操作数据库,增删改查");
+			Scanner input =new Scanner(System.in);
+			System.out.print("请输入要删除的员工编号:");
+			int empno=input.nextInt();
+			String sql = "delete from emp where empno=?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, empno);
+			int d = pstmt.executeUpdate();
+			if(0<d){
+				System.out.println("员工删除成功");
+			}else{
+				System.out.println("员工删除失败");
+			}
+			conn.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	public static void 修改() {
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn = DriverManager.getConnection(url, user, password);
+			System.out.println("连接成功,可操作数据库,增删改查");
+			Scanner input =new Scanner(System.in);
+			System.out.print("请输入要修改的员工编号:");
+			int empno=input.nextInt();
+			System.out.print("请输入新的员工姓名:");
+			String ename=input.next();
+			System.out.print("请输入新的员工 职位:");
+			String job=input.next();
+			System.out.print("请输入新的上司编号:");
+			int mgr=input.nextInt();
+			System.out.print("请输入新的入职日期(yyyy-MM-dd):");
+			String date=input.next();
+			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+			Date hiredate=sdf.parse(date);
+			System.out.print("请输入新的基本工资:");
+			double sal=input.nextDouble();
+			System.out.print("请输入新的奖金:");
+			double comm=input.nextDouble();
+			System.out.print("请输入新的部门编号(10,20,30):");
+			int deptno=input.nextInt();		
+			String sql = "update emp set ename=?,job=?,mgr=?,hiredate=?,sal=?,comm=?,deptno=? where empno=?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, ename);
+			pstmt.setString(2, job);
+			pstmt.setInt(3, mgr);
+			pstmt.setDate(4, new java.sql.Date(hiredate.getTime()));
+			pstmt.setDouble(5, sal);
+			pstmt.setDouble(6, comm);
+			pstmt.setInt(7,deptno);
+			pstmt.setInt(8, empno);
+			int d = pstmt.executeUpdate();
+			if(0<d){
+				System.out.println("员工修改成功");
+			}else{
+				System.out.println("员工修改失败");
+			}
+			conn.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	public static void 增加() {
+		try{
+			Class.forName("com.mysql.jdbc.Driver"); //5.0版本
+			Connection conn = DriverManager.getConnection(url, user, password);
+			System.out.println("连接成功,可操作数据库,增删改查");
+			Scanner input =new Scanner(System.in);
+			System.out.print("请输入员工编号:");
+			int empno=input.nextInt();
+			System.out.print("请输入员工姓名:");
+			String ename=input.next();
+			System.out.print("请输入员工 职位:");
+			String job=input.next();
+			System.out.print("请输入上司编号:");
+			int mgr=input.nextInt();
+			System.out.print("请输入入职日期(yyyy-MM-dd):");
+			String date=input.next();
+			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+			Date hiredate=sdf.parse(date);
+			System.out.print("请输入基本工资:");
+			double sal=input.nextDouble();
+			System.out.print("请输入奖金:");
+			double comm=input.nextDouble();
+			System.out.print("请输入部门编号(10,20,30):");
+			int deptno=input.nextInt();		
+			String sql = "insert into emp values(?,?,?,?,?,?,?,?)";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, empno);
+			pstmt.setString(2, ename);
+			pstmt.setString(3, job);
+			pstmt.setInt(4, mgr);
+			pstmt.setDate(5, new java.sql.Date(hiredate.getTime()));
+			pstmt.setDouble(6, sal);
+			pstmt.setDouble(7, comm);
+			pstmt.setInt(8,deptno);
+			int d = pstmt.executeUpdate();
+			if(0<d){
+				System.out.println("员工添加成功");
+			}else{
+				System.out.println("员工添加失败");
+			}
+			conn.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	/

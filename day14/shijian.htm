@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style type="text/css">
+	<!--#canvas{
+		border:1px solid red;
+		background-color:#999999;
+		transform: rotateX(120deg);
+		-webkit-transform: rotateX(120deg);	/* Safari 和 Chrome */
+		-moz-transform: rotateX(120deg);	/* Firefox */
+}-->
+
+</style>
+</head>
+<body>
+	<canvas id="canvas" width="400px"  height="400px"></canvas>
+</body>
+<script type="text/javascript">
+//onmouseout 鼠标从某元素移开
+//onmouseover 鼠标被移到某元素之上 
+//onload 某个页面或图像被完成加载 
+
+	var canvas = document.getElementById("canvas");
+	canvas.onmouseover = function(){
+		canvas.style.backgroundColor="red";
+	}
+	canvas.onmouseout = function(){
+		canvas.style.backgroundColor="blue";
+	}
+	window.onload = function(){
+	//	alert("pigcuiwen");
+	}
+	//弹窗 新建一个窗口open("");
+	//confirm() 显示带有一段消息以及确认按钮和取消按钮的对话框。 
+	//prompt() 显示可提示用户输入的对话框。
+	//for(;;){
+	//	var boo	= prompt("请输入pig文文");
+	//	if(boo!=null &&boo == "pig文文"){
+	//		break;
+	//	}
+	//}
+	var i = 5;;
+	var a = setInterval(
+	function(){
+	canvas.innerHTML="将在"+i+"秒后跳到百度";
+	i = i - 1;
+	if(i == 0){
+	clearInterval(a);
+	open("http://www.baidu.com");
+		}
+	},
+	1000);
+	
+</script>
+</html>

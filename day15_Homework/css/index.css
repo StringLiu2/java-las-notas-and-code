@@ -1,0 +1,48 @@
+body{
+    background: rgba(130, 142, 160, 0.5)
+}
+#box{
+    position: relative;
+    top:80px;
+    margin: 0 auto;
+    width:840px;
+	height:400px;
+}
+#arrow-left,#arrow-right{
+    display: none;
+    width:31px;
+    height:60px;
+    line-height: 80px;
+    background: rgba(35, 143, 231, 0.3);
+    position: absolute;
+    top:170px;
+    border-radius:6px;
+    cursor: pointer;
+}
+#arrow-right{
+    left:809px; 
+}
+#img{
+    width:840px;
+    height:400px;
+    
+}
+.list{
+    position: absolute;
+    left:50%;
+    top:370px;
+    margin-left:-40px;
+    font-size: 0; 
+    border-radius:7px;
+    background: rgba(250, 249, 249, 0.5);
+    padding: 0px;
+}
+.list li{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius:50%;
+    background: rgb(97, 94, 94);
+    margin: 4px;
+    cursor: pointer;
+}

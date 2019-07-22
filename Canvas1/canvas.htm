@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style type="text/css">
+	@keyframes myfirst
+	{
+		from {background-image:url("充电宝.jpg");
+				background-size:100%;
+		}
+		to {background-image:url("摄像头.jpg");
+				background-size:100%;
+		}
+	}
+
+	@-moz-keyframes myfirst /* Firefox */
+	{
+		from {background-image:url("充电宝.jpg");
+				background-size:100%;
+		}
+		to {background-image:url("摄像头.jpg");
+				background-size:100%;
+		}
+	}
+
+	@-webkit-keyframes myfirst /* Safari 和 Chrome */
+	{
+		from {background-image:url("充电宝.jpg");
+				background-size:100%;
+		}
+		to {background-image:url("摄像头.jpg");
+				background-size:100%;
+		}
+	}
+
+	@-o-keyframes myfirst /* Opera */
+	{
+		from {background-image:url("充电宝.jpg");
+				background-size:100%;
+		}
+		to {background-image:url("摄像头.jpg");
+				background-size:100%;
+		}
+	}
+	#canvas{
+		border:1px solid red;
+		background-color:#999999;
+		animation: myfirst 5s;
+		-moz-animation: myfirst 5s;	/* Firefox */
+		-webkit-animation: myfirst 5s;	/* Safari 和 Chrome */
+		-o-animation: myfirst 5s;	/* Opera */
+		}
+</style>
+</head>
+<body>
+	<canvas id="canvas" width="400px"  height="400px"></canvas>
+</body>
+<script type="text/javascript">
+	var canvas = document.getElementById('canvas');
+	var context = canvas.getContext('2d');
+	//绘制实心矩形   x,y,宽,高
+	context.fillRect(20,20,50,50);
+	//绘制空心矩形   x,y,宽,高
+	context.strokeRect(20,100,100,100);
+	
+	//绘制三角形
+	//告诉浏览器 我要开始绘制
+	context.beginPath();
+	//起始坐标 X,Y
+	context.moveTo(140,40);
+	//结束坐标 X,Y
+	context.lineTo(140,100);
+	context.lineTo(200,100);
+	//用线给绘制的直线的起始和终点坐标连接
+	context.closePath();
+	//空心实现
+	context.stroke();
+	//实心实现
+	context.fill();
+	//new Image 对象
+	var image = new Image();
+	//给image图片地址
+	image.src="http://coding.imweb.io/img/p5/plane.png";
+	//下载图片事件
+	image.onload = function(){
+						//图片,x,y,图片宽,高
+		context.drawImage(image,250,250,60,80);
+		
+	}
+	//绘制实心字    字  ,x ,y
+	context.fillText("猪翠文",200,200);
+	//绘制空心字
+	context.strokeText("猪翠文",200,220);
+	//给字		设置大小和字体
+	context.font = "30px 宋体";
+	//矩形绘制实心字
+	context.fillText("翠文是猪吧",230,200);
+	//擦除画布    x,y,宽,高
+	context.clearRect(0,0,canvas.width,canvas.height);
+	
+	context.beginPath();
+	//画圆
+	context.arc(100,100,50,0,2*Math.PI,true);
+	context.fill();
+	
+	context.clearRect(50,50,50,50);
+	
+	context.clearRect(0,0,canvas.width,canvas.height);
+	
+	context.beginPath();
+	context.moveTo(0,0);
+	context.lineTo(400,400);
+	context.lineTo(200,300);
+	context.lineTo(400,300);
+	context.lineTo(375,375);
+	
+	context.stroke();
+</script>
+</html>

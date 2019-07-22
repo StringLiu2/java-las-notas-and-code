@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			function init(){
+				setTimeout("show()",3000);
+			}
+			function show(){
+				//获取需要操作广告的元素
+				var img = document.getElementById("img1");
+				//显示广告
+				img.style.display = "block";
+				//3秒之后再关闭广告
+				setTimeout("hide()",3000);
+			}
+			function hide(){
+				//获取需要操作广告的元素
+				var img = document.getElementById("img1");
+				//显示广告
+				img.style.display = "none";
+				//3秒之后再关闭广告
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		<img src="../img/y.jpg" id="img1" style="display: none;" />
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--需求:
+				5秒后跳转到某个页面，必须动态显示
+		-->
+		<script type="text/javascript">
+			var time = 5;
+			var timer;
+			timer = setInterval(
+				function() {
+					var second = document.getElementById("second");
+					if(time >= 1) {
+						second.innerHTML = time;
+						time--;
+					} else {
+						clearInterval(timer);
+						location.href = "http://www.baidu.com";
+					}
+				},
+				1000
+			);
+		</script>
+	</head>
+
+	<body>
+		恭喜您注册成功<span style="color: red;" id="second">5</span>秒后跳转到主页。
+	</body>
+
+</html>

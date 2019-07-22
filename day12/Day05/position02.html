@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.d1 {
+				width: 500px;
+				height: 500px;
+				background: lightsalmon;
+			}
+			
+			
+			.d2 {
+				/*		
+				      相对定位:position: relative
+				 	特点:
+				 		元素使用相对定位仍然占据原来的位置
+				 		元素使用相对定位，其位置是从自身出发
+				 		如果元素有使用定位,其位置被固定 任何情况下都无法影响其位置
+				 		如果行内元素有使用到相对定位，其元素不能被转换成行内块
+				 		一般情况下，根据开发原则 要遵从子绝父相的开发原则
+				 	
+				 		* */
+				width: 500px;
+				height: 500px;
+				background: chartreuse;
+				position: relative;
+				top: 200px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="d1"></div>
+		<div class="d2"></div>
+		<div class="d3"> div</div>
+	</body>
+
+</html>

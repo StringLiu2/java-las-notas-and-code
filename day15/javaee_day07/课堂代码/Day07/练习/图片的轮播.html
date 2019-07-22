@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				margin: 0 auto;
+			}
+		</style>
+		<script>
+			/*
+			 	1.不需要准备任何的事件
+			 	2.怎么去实现轮播？	
+			 		2.1定时器
+			 	3.怎么切换图片
+			 */
+			var index = 0; //2
+			function changeImg(){
+				//1.获得是哪个元素进行图片的切换
+				var img = document.getElementById("img1");
+				//2.计算出要切换到第几张图片
+				var curIndex = index%3 + 1;//0 1 2 
+				img.src ="../img/"+curIndex+".jpg"//1
+				//每次切换完毕进行加1
+				index = index + 1;
+			}
+			
+			
+			function init(){
+				setInterval("changeImg()",1000);
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		<div>
+			<img src="../img/1.jpg" width="100%" id="img1">
+		</div>
+	</body>
+</html>

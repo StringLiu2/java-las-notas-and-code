@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			var index = 0;
+			/*图片切换的方法*/
+			function changeImg(){
+				var img1 = document.getElementById("img1");
+				//计算下切换图片的张数
+				var curIndex = index%3+1;
+				img1.src = "../img/"+curIndex+".jpg";
+				//每次切换图片后进行索引+1
+				index = index+1;
+			}
+			
+			//定时器的启动方法
+			function init(){
+				setInterval("changeImg()",1000);
+			}
+		</script>
+		<style>
+			body{
+				display: block;
+			}
+		</style>
+	</head>
+	<body onload="init()">
+		<img src="../img/1.jpg" width="100%" id="img1" />
+	</body>
+	
+</html>

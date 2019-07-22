@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>demo2019119</display-name>
+	<!-- 当我们直接输入根路劲时，返回的文件列表 ，返回的优先级由上往下 （找到文件马上返回 不再遍历） -->
+	<welcome-file-list>
+		<welcome-file>newFile.html</welcome-file>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	
+	<context-param>
+	   <param-name>encoding</param-name>
+	   <param-value>utf-8</param-value>
+	</context-param>
+	<context-param>
+	    <param-name>contentType</param-name>
+	    <param-value>text/html</param-value>
+	</context-param>
+	
+	<!-- 将DemoServlet注册到Web容器上 servlet-name：DemoServlet在web容器上的名称叫做demo servlet-class：指定是哪一个servlet -->
+	<!-- load on startup ：值越小 优先级越高 -->
+	<servlet>
+		<servlet-name>demo</servlet-name>
+		<servlet-class>net.seehope.servlet.DemoServlet</servlet-class>
+		<init-param>
+		    <param-name>encoding</param-name>
+		    <param-value>utf-8</param-value>
+		</init-param>
+		<init-param>
+		    <param-name>contentType</param-name>
+		    <param-value>text/html</param-value>
+		</init-param>
+		<load-on-startup>5</load-on-startup>
+	</servlet>
+	
+	<servlet>
+	    <servlet-name>scond</servlet-name>
+	    <servlet-class>net.seehope.servlet.SecondServlet</servlet-class>
+	    <load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- 路由： servlet-name：指定demo去处理 url-pattern：uri的值 /*:表示所有请求 *表示通配符 -->
+	<servlet-mapping>
+		<servlet-name>demo</servlet-name>
+		<!-- /demo/regist -->
+		<url-pattern>/demo/login</url-pattern>
+		<!-- <url-pattern>/demo/resgist</url-pattern> -->
+		
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>demo</servlet-name>
+		<!-- /demo/regist -->
+		<url-pattern>/demo/resgist</url-pattern>
+	</servlet-mapping>
+</web-app>

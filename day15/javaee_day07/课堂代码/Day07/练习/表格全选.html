@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			function init() {
+				//获取整个表格
+				var tab = document.getElementById("tab");
+				//获取表格当中的每一行
+				var rows = tab.rows;
+				//根据得到的所有行，判断基偶数
+				for(var i = 0; i < rows.length; i++) {
+					if(i % 2 == 0) {
+						rows[i].bgColor = "red";
+						rows[i].checked = "checked";
+					} else {
+						rows[i].bgColor = "green";
+					}
+				}
+			}
+			function checkAll(){
+				
+					var check1 = document.getElementById("check1");
+					//获取check1的状态
+					var checked = check1.checked; //checked true false
+					var checkeds = document.getElementsByName("checkone");
+					for(var i = 0;i < checkeds.length; i++){
+						checkeds[i].checked = checked;
+					}
+			}
+		</script>
+	</head>
+
+	<body onload="init()">
+		<table border="1px" width="500px" cellpadding="2px" id="tab" align="center" ">
+			<tr>
+				<td><input type="checkbox" checked="checked" id="check1" onclick="checkAll()"></td>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"  name="checkone"></td>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="checkone"></td>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="checkone"></td>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="checkone"></td>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+				<tr>
+					<td><input type="checkbox" name="checkone"></td>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+			
+				<tr>
+					<td><input type="checkbox" name="checkone"></td>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+				<tr>
+					<td><input type="checkbox" name="checkone"></td>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+				<tr>
+					<td><input type="checkbox" name="checkone"></td>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+				<tr>
+					<td><input type="checkbox" name="checkone"></td>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+			
+				<tr>
+					<td><input type="checkbox" name="checkone"></td>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+				<tr>
+					<td><input type="checkbox" name="checkone"></td>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+				<tr>
+					<td><input type="checkbox" name="checkone"></td>
+				<td>分类ID</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>操作</td>
+			</tr>
+		</table>
+	</body>
+</html>

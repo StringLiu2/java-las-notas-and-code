@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        td{
+            border: 1px solid red;
+            width: 100px;
+            height:40px;
+        }
+    </style>
+</head>
+<body>
+    <table cellspacing="0px" cellpadding="1px">
+        <tr>
+            <td><input type="checkbox" id="check"></td>
+            <td>name</td>
+            <td>id</td>
+            <td>user</td>
+            <td>salay</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <input type="button" id="delete" value="删除"/>
+    <script src="./js/jquery.js"></script>
+    <script>
+        $('tr:odd').css('background','rgba(0,0,0,0.2)');
+        $('#check').click(function(){
+            $('input').prop('checked', this.checked);
+        });
+        $('#delete').click(function(){
+            for(var i = 1;i<$('input').length;i++){
+                if($('input')[i].checked == true){
+                    $('tr').eq(i).detach();
+                    i = 0;
+                    $('input').length--;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

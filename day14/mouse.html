@@ -1,0 +1,32 @@
+<!--
+onmouseout 鼠标从某元素移开 
+onmouseover 鼠标被移到某元素之上 
+-->
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>mouse</title>
+		<style>
+			#box{
+				width:200px;
+				height:200px;
+				background-color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id ='box'></div>
+	</body>
+	<script>
+		var box = document.getElementById('box');
+		box.onmouseover = function(){
+			box.style.width='300px';
+			box.style.height='300px';
+		}
+		box.onmouseout = function(){
+			box.style.width='200px';
+			box.style.height='200px';
+		}
+	</script>
+</html>

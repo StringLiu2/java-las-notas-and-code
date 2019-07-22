@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+	 <meta charset="UTF-8">
+	 <title>二级联动</title>
+</head>
+<body>
+	<select id="city">
+		<option value='gd'>广东</option>
+		<option value='hn'>湖南</option>
+		<option value='fj'>福建</option>
+	</select>
+	<select id="area">
+		<option>广州</option>
+		<option>深圳</option>
+		<option>佛山</option>
+		<option>潮州</option>
+	</select>
+</body>
+<script>
+	var city = document.getElementById('city');
+	var area = document.getElementById('area');
+	
+	city.onchange = function(){
+			switch(city.value){
+				case 'gd':
+					area.innerHTML='<option>广州</option>'+
+						'<option>深圳</option>'+
+						'<option>佛山</option>'+
+						'<option>潮州</option>';
+					break;
+				case 'hn':
+				area.innerHTML='<option>长沙</option>'+
+						'<option>衡阳</option>'+
+						'<option>株洲</option>'+
+						'<option>。。。</option>';
+					break;
+				case 'fj':
+					area.innerHTML='<option>福州</option>'+
+						'<option>杭州</option>'+
+						'<option>厦门</option>'+
+						'<option>龙岩</option>';
+					break;
+			}
+	
+	}
+</script>
+</html>

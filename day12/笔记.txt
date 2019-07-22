@@ -1,0 +1,113 @@
+﻿W3C:HTML 结构标准 / CSS  表现标准 / JavaScript 行为标准
+
+世界上第一款浏览器 94年网景(Netscape Communications Corporation)公司开发。
+95年和sun公司开发出Java
+网景和sun进行了深度的合作 java+script= javascript
+
+2003年之前，js其实很少有人使用，因为js就是垃圾广告的代名词。
+2004年，一家伟大的公司彻底改变了js的命运，这就公司就谷歌，因为谷歌推出了一种
+技术，这种技术一直沿用至今，仍然都是目前主流的技术(AJAX)
+ajax:异步加载
+
+js：
+一:
+	1.js是什么?
+		js一个可以嵌入到HTML网页当中，是基于对象和事件驱动的脚本语言
+	2.js的特点?
+		1.对于用户有非常良好的交互性
+		2.具备非常强的安全性(对于用户)，JS没有任何的权限可以访问你的系统资源和磁盘
+		3.是跨平台，因为是基于浏览器的
+	3.js能做什么?
+		1.js能够实时动态的修改你的CSS和你的HTML代码
+		2.能够动态的校验数据
+	4.js的组成
+		DOM(文档对象模型) 
+		BOM(浏览器对象模型)
+	5.怎么去使用js?
+		1.行内
+			<input type="button" value="我是个没用的东西"  onclick="alert('我被点击了')"/>
+		2.内部
+			<script type="text/javascript"/>
+				alert('我被加载了');			
+			</script>
+		3.外部
+			<script type="text/javascript" src="../js/js_demo.js"/>
+			
+	JS代码放在哪儿？
+		原则上,你JS放任意位置都没问题，但是在不影响功能的前提下，建议越晚加载越好
+	
+二:JS的基本语法
+		typeof获取当前数据的类型
+			 js当中的原始数据类型:
+			 		number:数字
+			 		string:字符串类型
+			 		boolean:布尔类型
+			 		null:空类型
+			 		underfind:未定义
+		number/string/boolean 伪数据类型(等同于java的自动拆装箱)
+	类型转型:
+		number/boolean类型转成string
+			toString();
+		string/boolean转number
+			parseInt();
+			parseFloat();
+		string转成number parseInt(x) 字符串必须开头包含数字，最后的结果就是开头的数字
+		
+	强制类型转换:
+		Boolean(),强转布尔
+			数字如果转成布尔,false即0 true即1
+			字符串如果转成布尔，空内容即false,有内容及true
+		Number()
+			布尔转数字，true即1 false即0
+			字符串转数字，不能转
+			
+	引用数据类型
+		java:Object ob = new Object();
+		js:var ob = new Number();
+		
+	运算符:
+		赋值运算:
+			var  x = 5;
+		算数运算:
+			+ - * /(操作跟java一致，你们不让我讲)
+		逻辑运算:
+			&& || 
+		比较运算:
+			< > <= >= != == ===
+		全等:需要数据类型和数据值完全匹配
+		三元运算:
+			3 > 2 ? 3 : 2;
+		void运算:
+			<a href="javascript:void(0)">点击我跳转</a>
+		类型运算符：
+			typeof:获取数据类型
+			instanceof:判断某一个数据是否为某种数据类型
+			
+	逻辑语句:
+		1.if
+			if(x > 5){
+				alert("大于");
+			}
+		2.if else	
+			if(x > 5){
+				alert("大于");
+			}else{
+				alert('小于');
+			}
+		3.switch(){
+			case "css":
+				alert("xxx");
+				break;
+			default:
+				alert("xxx");
+		}
+		4.for
+			for(var a = 0;a < 5;a++){
+				alert(a);
+			}
+		5.for in
+			var arr = [1,56,1,5,"s"];
+			for(s in arr){
+				//alert(s);//索引编号
+				alert(arr[s]);
+			}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*
+			 	文档的标准流:
+			 		HTML的元素标签，从上往下 从左往右，块元素独自一行，行内元素同行显示，碰到末尾或父元素边框自动换行
+			 	文档的非标准流(脱标流):
+			 		float:left;
+			 	元素的浮动不再占据原来标准流的位置
+			 	特点:
+			 		所有浮动的盒子会在同一行显示
+			 		行内元素如果进行浮动会直接转化成行内块元素(不推荐，如果只是单纯的想转换成行内块推荐使用display:inline-block)
+			 	作用?
+			 		1.可以制作导航栏
+			 		2.网页布局
+			 		3.制作文本绕图
+				  
+			 */
+			.d1{
+				background: red;
+				width: 100px;
+				height: 100px;
+				float: left;
+			}
+			.d2{
+				background: saddlebrown;
+				width: 100px;
+				height: 100px;
+				float: left;
+			}
+			.d3{
+				background: chartreuse;
+				width: 100px;
+				height: 100px;
+				/*清除浮动*/
+				/*
+				 	清除浮动就是不用往上浮动，解决浮动带来不利的影响
+				 * */
+				/*clear:both;*/
+				
+			}
+			span{
+				float: right;
+				width: 450px;
+				height: 450px;
+				background: salmon;
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="d1"></div>
+		<div class="d2"></div>
+		<!--相当于一层隔板，这个标签一般无意义-->
+		<!--<div style="clear: both;"></div>-->
+		<div class="d3"></div>
+		<span>我是span</span>
+	</body>
+</html>

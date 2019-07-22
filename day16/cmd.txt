@@ -1,0 +1,2 @@
+cmd  -->services.msc - my 打开服务
+cmd --> sc delete mysql(服务名)
